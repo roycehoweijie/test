@@ -1,0 +1,27 @@
+signingConfigs {
+    release {
+      storeFile file("../myapp.jks")
+      storePassword "mypassword"
+      keyAlias "My_App"
+      keyPassword "mykeypassword"
+    }
+    debug {
+      storeFile file('../debug.keystore')
+      storePassword 'android'
+      keyAlias 'androiddebugkey'
+      keyPassword 'android'
+    }
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      debuggable false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.release
+    }
+    debug{
+      debuggable true
+      minifyEnabled false
+      signingConfig signingConfigs.debug
+    }
+  }
